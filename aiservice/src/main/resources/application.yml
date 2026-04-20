@@ -1,0 +1,38 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: aiservice
+
+  # MongoDB Configuration (stores AI recommendations)
+  data:
+    mongodb:
+      uri: {MONGODB_AI_URI}
+      database: airecommendationfitness
+
+  # Kafka Consumer Configuration
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ai-recommendation-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: com.fitness.aiservice.model.Activity
+        spring.json.trusted.packages: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+# --- Google Gemini API Config ---
+# Get your free API key from: https://aistudio.google.com/app/apikey
+gemini:
+  api:
+    key: {GEMINI_API_KEY}
+    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent
