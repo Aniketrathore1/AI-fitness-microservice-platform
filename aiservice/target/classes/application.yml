@@ -8,7 +8,7 @@ spring:
   # MongoDB Configuration (stores AI recommendations)
   data:
     mongodb:
-      uri: mongodb://localhost:27017/airecommendationfitness
+      uri: {MONGODB_AI_URI}
       database: airecommendationfitness
 
   # Kafka Consumer Configuration
@@ -34,5 +34,5 @@ eureka:
 # Get your free API key from: https://aistudio.google.com/app/apikey
 gemini:
   api:
-    key: AIzaSyAhqbfIvNhkiMCvedDQVgyJG_LDj85LaOM
+    key: {GEMINI_API_KEY}
     url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent

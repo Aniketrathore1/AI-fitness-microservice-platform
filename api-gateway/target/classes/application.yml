@@ -8,19 +8,19 @@ spring:
   cloud:
     gateway:
       routes:
-        # Route all /api/users/** to userservice
+
         - id: userservice-route
           uri: lb://userservice
           predicates:
             - Path=/api/users/**
 
-        # Route all /api/activities/** to activityservice
+
         - id: activityservice-route
           uri: lb://activityservice
           predicates:
             - Path=/api/activities/**
 
-        # Route all /api/ai/** to aiservice
+
         - id: aiservice-route
           uri: lb://aiservice
           predicates:

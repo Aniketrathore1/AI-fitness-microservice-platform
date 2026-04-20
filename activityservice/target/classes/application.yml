@@ -8,7 +8,7 @@ spring:
   # MongoDB Configuration
   data:
     mongodb:
-      uri: mongodb://localhost:27017/fitnessactivities
+      uri: {MONGODB_ACTIVITY_URI}
       database: fitnessactivities
 
   # Kafka Producer Configuration
